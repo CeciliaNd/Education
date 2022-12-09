@@ -43,4 +43,7 @@ group by state_name, census_region_name
 order by median_family_income desc
 
 /*does population play role?*/
-select population_estimate, 
+select sum(population_estimate) as population_estimate, state_name, sum(persons_25_w_4_yrs_college) as persons_25_w_4_yrs_college
+from popdemodata
+group by state_name
+order by population_estimate desc
